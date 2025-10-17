@@ -1,57 +1,52 @@
-@extends('layouts.form')
+<x-guest-layout>
+    <form method="POST" action="{{ route('register') }}">
+        @csrf
 
-@section('title', 'Registrate')
-
-@section('content')
-<div class="container-fluid page-body-wrapper full-page-wrapper">
-    <div class="content-wrapper d-flex align-items-center auth px-0">
-        <div class="row w-100 mx-0">
-            <div class="col-lg-4 mx-auto">
-                <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-                    <div class="brand-logo">
-                        <img src="../../images/logo.svg" alt="logo">
-                    </div>
-                    @if($errors->any())
-                        <h6 class="font-weight-light text-center">Se encontro el siguiente error.</h6>
-                        <div class="alert alert-danger mb-4">{{ $errors->first() }}</div>
-                    @else
-                        <h4>¿Nuevo aquí?</h4>
-                        <h6 class="font-weight-light">Registrarte es muy fácil. Te tomará unos pasos.</h6>
-                    @endif
-                    <form class="pt-3" method="POST" action="{{ route('register') }}">
-                        @csrf
-                        <div class="form-group">
-                            <input type="text" class="form-control form-control-lg" id="exampleInputUsername1"
-                                placeholder="Nombre y Apellido" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
-                                placeholder="Correo" name="email" value="{{ old('email') }}" required autocomplete="email">
-                        </div>
-                        <div class="form-group">
-                            <select name="role" class="form-control form-control-lg" id="role" required>
-                                <option value="" disabled selected>Selecciona un rol</option>
-                                <option value="residente">Residente</option>
-                                <option value="tecnico">Técnico</option>
-                                <option value="administrador">Administrador</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control form-control-lg" id="exampleInputPassword1"
-                                placeholder="Contraseña" name="password" required autocomplete="new-password">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control form-control-lg" id="exampleInputPassword1"
-                                placeholder="Repetir Contraseña" name="password_confirmation" required autocomplete="new-password">
-                        </div>
-                        <div class="mt-3">
-                            <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">Registrarse</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <!-- Name -->
+        <div>
+            <x-input-label for="name" :value="__('Name')" />
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
-    </div>
-    <!-- content-wrapper ends -->
-</div>
-@endsection
+
+        <!-- Email Address -->
+        <div class="mt-4">
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        <!-- Password -->
+        <div class="mt-4">
+            <x-input-label for="password" :value="__('Password')" />
+
+            <x-text-input id="password" class="block mt-1 w-full"
+                            type="password"
+                            name="password"
+                            required autocomplete="new-password" />
+
+            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="mt-4">
+            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+
+            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                            type="password"
+                            name="password_confirmation" required autocomplete="new-password" />
+
+            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        </div>
+
+        <div class="flex items-center justify-end mt-4">
+            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+                {{ __('Already registered?') }}
+            </a>
+
+            <x-primary-button class="ms-4">
+                {{ __('Register') }}
+            </x-primary-button>
+        </div>
+    </form>
+</x-guest-layout>
