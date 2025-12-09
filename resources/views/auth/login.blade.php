@@ -42,9 +42,11 @@
                         </div>
                         <a href="{{ route('password.request') }}" class="auth-link text-black">¿Olvidaste tu contraseña?</a>
                     </div>
+                    <!--
                     <div class="text-center mt-4 font-weight-light">
                         ¿No tienes cuenta? <a href="{{ route('register') }}" class="text-primary">Crear</a>
                     </div>
+                    -->
                 </form>
             </div>
         </div>
