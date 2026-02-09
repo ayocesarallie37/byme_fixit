@@ -17,4 +17,25 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+use App\Http\Controllers\Resident\DashboardController;
+use App\Http\Controllers\Resident\IncidenceController;
+
+Route::middleware(['auth', 'role:residente'])
+    ->prefix('residente')
+    ->name('residente.')
+    ->group(function () {
+
+        Route::get('/dashboard', [DashboardController::class, 'index'])
+            ->name('dashboard');
+
+        Route::get('/incidencias/crear', [IncidenceController::class, 'create'])
+            ->name('incidencias.create');
+
+        Route::post('/incidencias', [IncidenceController::class, 'store'])
+            ->name('incidencias.store');
+
+        Route::get('/incidencias', [IncidenceController::class, 'index'])
+            ->name('incidencias.index');
+    });
+
 require __DIR__.'/auth.php';
