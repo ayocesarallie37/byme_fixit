@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Residente\IncidenciaController;
+use App\Http\Controllers\Residente\DashboardController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -17,9 +19,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-use App\Http\Controllers\Resident\DashboardController;
-use App\Http\Controllers\Resident\IncidenceController;
-
 Route::middleware(['auth', 'role:residente'])
     ->prefix('residente')
     ->name('residente.')
@@ -28,14 +27,14 @@ Route::middleware(['auth', 'role:residente'])
         Route::get('/dashboard', [DashboardController::class, 'index'])
             ->name('dashboard');
 
-        Route::get('/incidencias/crear', [IncidenceController::class, 'create'])
+        Route::get('/incidencias', [IncidenciaController::class, 'index'])
+            ->name('incidencias.index');
+
+        Route::get('/incidencias/crear', [IncidenciaController::class, 'create'])
             ->name('incidencias.create');
 
-        Route::post('/incidencias', [IncidenceController::class, 'store'])
+        Route::post('/incidencias', [IncidenciaController::class, 'store'])
             ->name('incidencias.store');
-
-        Route::get('/incidencias', [IncidenceController::class, 'index'])
-            ->name('incidencias.index');
     });
 
 require __DIR__.'/auth.php';

@@ -7,19 +7,19 @@ $role = Auth::user()->role;
         {{-- MENU PARA RESIDENTE --}}
         @if ($role === 'residente')
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ route('dashboard') }}">
                 <i class="fas fa-home mr-2"></i>
                 <span class="menu-title">Panel de control</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ route('residente.incidencias.create') }}">
                 <i class="fas fa-plus mr-2"></i>
                 <span class="menu-title">Reportar incidencia</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ route('residente.incidencias.index') }}">
                 <i class="fas fa-bars mr-2"></i>
                 <span class="menu-title">Seguimiento incidencias</span>
             </a>
