@@ -10,8 +10,8 @@
                 <div class="row">
                     <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                         <h3 class="font-weight-bold">Bienvenido {{ auth()->user()->name }}</h3>
-                        <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span
-                                class="text-primary">3 unread alerts!</span></h6>
+                        <h6 class="font-weight-normal mb-0">¡Todos los sistemas funcionan correctamente! Tienes <span
+                                class="text-primary"><strong>3 alertas no leídas</strong></span></h6>  
                     </div>
                 </div>
             </div>
@@ -100,7 +100,6 @@
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    // Datos de ejemplo
     var areaData = {
     labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
     datasets: [{
@@ -123,13 +122,13 @@
         'rgba(255, 159, 64, 1)'
       ],
       borderWidth: 1,
-      fill: true, // 3: no fill
+      fill: true,
     }]
   };
     // Inicializar gráfica
     var ctx = document.getElementById("areaChart").getContext('2d');
     var areaChart = new Chart(ctx, {
-        type: 'line', // también puede ser 'bar', 'pie', etc.
+        type: 'line',
         data: areaData,
         options: {
             responsive: true,
