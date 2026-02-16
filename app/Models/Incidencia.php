@@ -18,12 +18,12 @@ class Incidencia extends Model
         'completado_en'
     ];
 
-    public function resident()
+    public function residente()
     {
         return $this->belongsTo(Residente::class);
     }
 
-    public function technician()
+    public function tecnico()
     {
         return $this->belongsTo(Tecnico::class);
     }

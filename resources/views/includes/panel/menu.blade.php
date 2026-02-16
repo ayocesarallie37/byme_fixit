@@ -25,7 +25,7 @@ $role = Auth::user()->role;
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link {{ request()->routeIs('residente.incidencias.historial') ? 'active' : '' }}" href="{{ route('residente.incidencias.historial') }}">
                 <i class="fas fa-list-ul mr-2"></i>
                 <span class="menu-title">Historial de incidencias</span>
             </a>

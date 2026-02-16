@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Residente;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Incidencia;
+use App\Models\Residente;
 
 class IncidenciaController extends Controller
 {
@@ -64,5 +66,24 @@ class IncidenciaController extends Controller
     public function destroy($id)
     {
         // Lógica para eliminar una incidencia
+    }
+
+    public function historial()
+    {
+        $user = auth()->user();
+
+        $residente = Residente::where('user_id', $user->id)->first();
+
+        if (!$residente) {
+            dd('No existe registro en tabla residentes para este usuario');
+        }
+
+        $incidencias = Incidencia::with('tecnico')
+            ->where('residentes_id', $residente->id)
+            ->where('estado', 'resuelta')
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        return view('residente.incidencias.historial', compact('incidencias'));
     }
 }

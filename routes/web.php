@@ -35,6 +35,9 @@ Route::middleware(['auth', 'role:residente'])
 
         Route::post('/incidencias', [IncidenciaController::class, 'store'])
             ->name('incidencias.store');
+        
+        Route::get('/incidencias/historial', [IncidenciaController::class, 'historial'])
+            ->name('incidencias.historial');
     });
 
 require __DIR__.'/auth.php';

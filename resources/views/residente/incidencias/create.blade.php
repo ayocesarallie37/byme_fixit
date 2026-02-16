@@ -9,7 +9,9 @@
         <div class="card-body">
             <h4 class="card-title">Registro de incidencia</h4>
             <p class="card-description">
-                Reporta tus incidencias para que el personal de mantenimiento pueda atenderlas lo antes posible. Asegúrate de proporcionar detalles claros y adjuntar fotos si es necesario para una mejor comprensión del problema.
+                Reporta tus incidencias para que el personal de mantenimiento pueda atenderlas lo antes posible.
+                Asegúrate de proporcionar detalles claros y adjuntar fotos si es necesario para una mejor comprensión
+                del problema.
             </p>
             <form class="forms-sample">
                 <div class="form-group">
@@ -42,7 +44,7 @@
                         </span>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary mr-2">Crear</button>
+                <button type="submit" class="btn btn-primary mr-2">Crear incidencia</button>
                 <button class="btn btn-light">Cancelar</button>
             </form>
         </div>
