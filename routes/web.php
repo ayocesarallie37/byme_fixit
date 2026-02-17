@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Residente\IncidenciaController;
 use App\Http\Controllers\Residente\DashboardController;
+use App\Http\Controllers\Residente\NotificacionController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -38,6 +39,15 @@ Route::middleware(['auth', 'role:residente'])
         
         Route::get('/incidencias/historial', [IncidenciaController::class, 'historial'])
             ->name('incidencias.historial');
+        
+        Route::get('/evaluacion/{incidencia}', [IncidenciaController::class, 'evaluacion'])
+            ->name('evaluacion.form');
+
+        Route::post('/evaluacion', [IncidenciaController::class, 'guardarEvaluacion'])
+            ->name('evaluacion.store');
+
+        Route::get('/notificaciones', [NotificacionController::class, 'index'])
+            ->name('notificaciones.index');
     });
 
 require __DIR__.'/auth.php';

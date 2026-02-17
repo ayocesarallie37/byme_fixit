@@ -86,4 +86,40 @@ class IncidenciaController extends Controller
 
         return view('residente.incidencias.historial', compact('incidencias'));
     }
+
+    public function evaluacion($id)
+    {
+        $incidencia = Incidencia::with('tecnico')
+            ->where('id', $id)
+            ->where('estado', 'resuelto')
+            ->firstOrFail();
+
+        return view('residente.incidencias.evaluacion', compact('incidencia'));
+    }
+
+    public function guardarEvaluacion(Request $request)
+    {
+        $request->validate([
+            'incidencia_id' => 'required|exists:incidencias,id',
+            'rapidez' => 'required|integer|min:1|max:5',
+            'calidad' => 'required|integer|min:1|max:5',
+            'atencion' => 'required|integer|min:1|max:5',
+            'comentarios' => 'nullable|string'
+        ]);
+
+        $residente = auth()->user()->residente;
+
+        Evaluacion::create([
+            'incidencia_id' => $request->incidencia_id,
+            'residentes_id' => $residente->id,
+            'rapidez' => $request->rapidez,
+            'calidad' => $request->calidad,
+            'atencion' => $request->atencion,
+            'comentarios' => $request->comentarios
+        ]);
+
+        return redirect()->route('residente.incidencias.historial')
+            ->with('success', 'Evaluación enviada correctamente.');
+    }
+
 }

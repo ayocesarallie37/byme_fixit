@@ -62,7 +62,6 @@
                                         <i class="fa fa-eye"></i>
                                     </button>
                                 </td>
-
                             </tr>
                         </tbody>
                     </table>

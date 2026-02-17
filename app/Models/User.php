@@ -47,13 +47,14 @@ class User extends Authenticatable
         ];
     }
 
-    public function resident()
-    {
-        return $this->hasOne(Residente::class);
-    }
-
     public function technician()
     {
         return $this->hasOne(Tecnico::class);
     }
+
+    public function residente()
+    {
+        return $this->hasOne(Residente::class, 'user_id');
+    }
+
 }

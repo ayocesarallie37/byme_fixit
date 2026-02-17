@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Residente;
+use App\Models\Tecnico;
+use App\Models\Evaluacion;
 
 class Incidencia extends Model
 {
@@ -26,5 +29,10 @@ class Incidencia extends Model
     public function tecnico()
     {
         return $this->belongsTo(Tecnico::class);
+    }
+
+    public function evaluacion()
+    {
+        return $this->hasOne(Evaluacion::class);
     }
 }

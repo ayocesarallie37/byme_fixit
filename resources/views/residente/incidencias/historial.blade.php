@@ -21,6 +21,7 @@
                                 <th>Estado</th>
                                 <th>Técnico asignado</th>
                                 <th>Tiempo estimado</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
 
@@ -47,6 +48,12 @@
 
                                     <td>
                                         5 horas
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('residente.evaluacion.form', $incidencia->id) }}"
+                                        class="btn btn-primary btn-sm">
+                                            Evaluar
+                                        </a>
                                     </td>
                                 </tr>
                             @empty

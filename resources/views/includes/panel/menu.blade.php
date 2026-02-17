@@ -31,13 +31,13 @@ $role = Auth::user()->role;
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="#">
                 <i class="fas fa-star mr-2"></i>
                 <span class="menu-title">Evaluación de servicio</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link {{ request()->routeIs('residente.notificaciones.index') ? 'active' : '' }}" href="{{ route('residente.notificaciones.index') }}">
                 <i class="fas fa-bell mr-2"></i>
                 <span class="menu-title">Notificaciones</span>
             </a>
@@ -59,7 +59,7 @@ $role = Auth::user()->role;
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <aa class="nav-link" href="">
                 <i class="fas fa-list mr-2"></i>
                 <span class="menu-title">Actualización de estado</span>
             </a>
