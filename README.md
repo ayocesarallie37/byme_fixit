@@ -27,6 +27,14 @@ Aplicación web.
 - Asignación de técnicos
 - Seguimiento de solicitudes
 
+## Documentation
+
+Project documentation can be found in the `/docs` directory.
+
+- Architecture
+- API
+- Installation Guide
+
 ## Instalación
 
 ```bash
