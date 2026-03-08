@@ -3,7 +3,6 @@ name: Laravel CI
 on:
   push:
     branches: [ main, develop ]
-
   pull_request:
     branches: [ main, develop ]
 
@@ -22,9 +21,10 @@ jobs:
       with:
         php-version: 8.2
         extensions: mbstring, bcmath, pdo, sqlite
+        coverage: none
 
-    - name: Install PHP dependencies
-      run: composer install --no-progress --prefer-dist
+    - name: Install Composer dependencies
+      run: composer install --no-progress --prefer-dist --no-interaction
 
     - name: Install Node dependencies
       run: npm install
@@ -32,7 +32,7 @@ jobs:
     - name: Build assets
       run: npm run build
 
-    - name: Copy .env
+    - name: Copy environment file
       run: cp .env.example .env
 
     - name: Generate application key
@@ -42,6 +42,11 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
+
+    - name: Set testing database
+      run: |
+        echo "DB_CONNECTION=sqlite" >> .env
+        echo "DB_DATABASE=database/database.sqlite" >> .env
 
     - name: Run migrations
       run: php artisan migrate --force
