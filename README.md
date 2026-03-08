@@ -1,5 +1,13 @@
 # ByMe FixIt
 
+![Laravel CI](https://github.com/ayocesarallie37/byme_fixit/actions/workflows/ci.yml/badge.svg)
+
+![License](https://img.shields.io/badge/license-MIT-green)
+
+![Laravel](https://img.shields.io/badge/Laravel-10-red)
+
+![PHP](https://img.shields.io/badge/PHP-8.2-blue)
+
 ## Descripción
 ByMe FixIt es una aplicación web diseñada para gestionar solicitudes de mantenimiento y soporte técnico dentro de una organización.
 
