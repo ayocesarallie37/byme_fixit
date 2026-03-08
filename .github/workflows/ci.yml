@@ -21,16 +21,30 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: 8.2
-        extensions: mbstring, bcmath, pdo, mysql
+        extensions: mbstring, bcmath, pdo, sqlite
 
     - name: Install PHP dependencies
       run: composer install --no-progress --prefer-dist
 
+    - name: Install Node dependencies
+      run: npm install
+
+    - name: Build assets
+      run: npm run build
+
     - name: Copy .env
       run: cp .env.example .env
 
-    - name: Generate key
+    - name: Generate application key
       run: php artisan key:generate
+
+    - name: Create SQLite database
+      run: |
+        mkdir -p database
+        touch database/database.sqlite
+
+    - name: Run migrations
+      run: php artisan migrate --force
 
     - name: Run tests
       run: php artisan test
