@@ -13,4 +13,8 @@ WORKDIR /var/www/html
 
 RUN chown -R www-data:www-data /var/www/html
 
+<<<<<<< HEAD
 EXPOSE 80
+=======
+EXPOSE 80
+>>>>>>> 6ccc0eff8db2a7438a79a53ddccc2cc9609c6ad8

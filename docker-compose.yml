@@ -19,4 +19,8 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     ports:
+<<<<<<< HEAD
       - "3306:3306"
+=======
+      - "3306:3306"
+>>>>>>> 6ccc0eff8db2a7438a79a53ddccc2cc9609c6ad8
