@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('residentes_id');
             $table->string('titulo');
             $table->text('mensaje');
-            $table->boolean('leida')->default(false)->after('mensaje');
+            $table->boolean('leida')->default(false);
             $table->timestamp('fecha_evento')->nullable();
             $table->timestamps();
 

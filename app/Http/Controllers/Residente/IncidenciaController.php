@@ -29,7 +29,7 @@ class IncidenciaController extends Controller
         ]);
 
         // Obtener registro del residente
-        $resident = auth()->user()->resident;
+        $resident = auth()->user()->residente;
 
         if (!$resident) {
             abort(403, 'No existe perfil de residente.');
