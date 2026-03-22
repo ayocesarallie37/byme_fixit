@@ -11,19 +11,16 @@ class IncidenciaUnitTest extends TestCase
 {
     public function test_crear_incidencia_correctamente()
 {
-    // Crear usuario
     $user = User::factory()->create([
         'role' => 'residente'
     ]);
 
-    // Insertar residente manualmente
     $residenteId = DB::table('residentes')->insertGetId([
         'user_id' => $user->id,
         'created_at' => now(),
         'updated_at' => now()
     ]);
 
-    // Crear incidencia
     $incidencia = Incidencia::create([
         'asunto' => 'Fuga de agua',
         'descripcion' => 'Hay fuga en el baño',
