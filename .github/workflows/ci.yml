@@ -27,13 +27,14 @@ jobs:
     - name: Copy .env
       run: cp .env.example .env
 
-    - name: Generate app key
+    - name: Generate key
       run: php artisan key:generate
 
-    - name: Set up testing environment
+    - name: Configure SQLite
       run: |
+        touch database/database.sqlite
         echo "DB_CONNECTION=sqlite" >> .env
-        echo "DB_DATABASE=:memory:" >> .env
+        echo "DB_DATABASE=$(pwd)/database/database.sqlite" >> .env
 
     - name: Run migrations
       run: php artisan migrate
