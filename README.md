@@ -43,6 +43,29 @@ Project documentation can be found in the `/docs` directory.
 - API
 - Installation Guide
 
+## Estructura de pruebas
+
+El proyecto cuenta con diferentes tipos de pruebas organizadas de la siguiente manera:
+
+tests/
+├── Unit/
+├── Feature/
+│ ├── Aceptacion/
+│ ├── Esfuerzo/
+│ └── Integracion/
+
+### Tipos de pruebas:
+- **Unitarias:** Validan funciones individuales.
+- **Integración:** Validan interacción entre módulos.
+- **Esfuerzo:** Evalúan rendimiento del sistema.
+- **Aceptación:** Validan que el sistema cumple con los requisitos del usuario.
+
+## Ejecución de pruebas
+
+### 1. Ejecutar todas las pruebas
+```bash
+php artisan test
+
 ## Instalación
 
 ```bash
