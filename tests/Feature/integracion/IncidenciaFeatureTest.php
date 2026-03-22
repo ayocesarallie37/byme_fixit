@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use App\Models\User;
 use App\Models\Residente;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class IncidenciaFeatureTest extends TestCase
 {
@@ -21,7 +21,7 @@ class IncidenciaFeatureTest extends TestCase
     public function test_usuario_puede_crear_incidencia()
     {
         $user = User::factory()->create([
-            'role' => 'residente'
+            'role' => 'residente',
         ]);
 
         $residente = Residente::create([
@@ -32,14 +32,14 @@ class IncidenciaFeatureTest extends TestCase
             'asunto' => 'Fuga de agua',
             'descripcion' => 'Fuga en cocina',
             'ubicación' => 'Cocina',
-            'prioridad' => 'media'
+            'prioridad' => 'media',
         ]);
 
         $response->assertStatus(302);
 
         $this->assertDatabaseHas('incidencias', [
             'asunto' => 'Fuga de agua',
-            'descripcion' => 'Fuga en cocina'
+            'descripcion' => 'Fuga en cocina',
         ]);
     }
 
@@ -48,7 +48,7 @@ class IncidenciaFeatureTest extends TestCase
         $this->withoutMiddleware();
 
         $user = User::factory()->create([
-            'role' => 'residente'
+            'role' => 'residente',
         ]);
 
         Residente::create([

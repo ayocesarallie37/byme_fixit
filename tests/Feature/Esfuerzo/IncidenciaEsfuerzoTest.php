@@ -2,10 +2,10 @@
 
 namespace Tests\Feature\Esfuerzo;
 
-use Tests\TestCase;
-use App\Models\User;
 use App\Models\Residente;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class IncidenciaEsfuerzoTest extends TestCase
 {
@@ -21,7 +21,7 @@ class IncidenciaEsfuerzoTest extends TestCase
     public function test_crear_multiples_incidencias()
     {
         $user = User::factory()->create([
-            'role' => 'residente'
+            'role' => 'residente',
         ]);
 
         $residente = Residente::create([
@@ -32,7 +32,7 @@ class IncidenciaEsfuerzoTest extends TestCase
             $this->actingAs($user)->post('/residente/incidencias', [
                 'asunto' => "Incidencia $i prueba",
                 'descripcion' => "Descripción válida número $i con suficiente texto",
-                'prioridad' => 'media'
+                'prioridad' => 'media',
             ]);
         }
 
@@ -42,7 +42,7 @@ class IncidenciaEsfuerzoTest extends TestCase
     public function test_crear_incidencia_con_texto_largo()
     {
         $user = User::factory()->create([
-            'role' => 'residente'
+            'role' => 'residente',
         ]);
 
         Residente::create([
@@ -55,13 +55,13 @@ class IncidenciaEsfuerzoTest extends TestCase
         $response = $this->actingAs($user)->post('/residente/incidencias', [
             'asunto' => $asunto,
             'descripcion' => $descripcion,
-            'prioridad' => 'media'
+            'prioridad' => 'media',
         ]);
 
         $response->assertStatus(302);
 
         $this->assertDatabaseHas('incidencias', [
-            'asunto' => $asunto
+            'asunto' => $asunto,
         ]);
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Incidencia;
 
 class Evaluacion extends Model
 {
@@ -13,12 +12,11 @@ class Evaluacion extends Model
         'rapidez',
         'calidad',
         'atencion',
-        'comentarios'
+        'comentarios',
     ];
 
     public function incidencia()
     {
         return $this->belongsTo(Incidencia::class);
     }
-
 }

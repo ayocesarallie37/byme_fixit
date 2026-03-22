@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
@@ -16,9 +15,9 @@ class HomeController extends Controller
     {
         // Datos del clima para CDMX
         $weatherData = $this->getWeatherData();
-        
+
         return view('home', [
-            'weather' => $weatherData
+            'weather' => $weatherData,
         ]);
     }
 
@@ -58,6 +57,7 @@ class HomeController extends Controller
             'Thunderstorm' => 'fa-bolt',
             'Snow' => 'fa-snowflake',
         ];
+
         return $icons[$weather] ?? 'fa-cloud-sun';
     }
 }

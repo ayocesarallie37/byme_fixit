@@ -3,9 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Residente;
-use App\Models\Tecnico;
-use App\Models\Evaluacion;
 
 class Incidencia extends Model
 {
@@ -18,7 +15,7 @@ class Incidencia extends Model
         'residentes_id',
         'tecnicos_id',
         'asignado_en',
-        'completado_en'
+        'completado_en',
     ];
 
     public function residente()

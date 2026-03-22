@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Residente;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Incidencia;
 use App\Models\Residente;
+use Illuminate\Http\Request;
 
 class IncidenciaController extends Controller
 {
@@ -25,13 +25,13 @@ class IncidenciaController extends Controller
             'asunto' => 'required|min:5|max:255',
             'descripcion' => 'required|min:10',
             'ubicación' => 'nullable|max:255',
-            'prioridad' => 'required|in:baja,media,alta'
+            'prioridad' => 'required|in:baja,media,alta',
         ]);
 
         // Obtener registro del residente
         $resident = auth()->user()->residente;
 
-        if (!$resident) {
+        if (! $resident) {
             abort(403, 'No existe perfil de residente.');
         }
 
@@ -74,7 +74,7 @@ class IncidenciaController extends Controller
 
         $residente = Residente::where('user_id', $user->id)->first();
 
-        if (!$residente) {
+        if (! $residente) {
             dd('No existe registro en tabla residentes para este usuario');
         }
 
@@ -104,7 +104,7 @@ class IncidenciaController extends Controller
             'rapidez' => 'required|integer|min:1|max:5',
             'calidad' => 'required|integer|min:1|max:5',
             'atencion' => 'required|integer|min:1|max:5',
-            'comentarios' => 'nullable|string'
+            'comentarios' => 'nullable|string',
         ]);
 
         $residente = auth()->user()->residente;
@@ -115,11 +115,10 @@ class IncidenciaController extends Controller
             'rapidez' => $request->rapidez,
             'calidad' => $request->calidad,
             'atencion' => $request->atencion,
-            'comentarios' => $request->comentarios
+            'comentarios' => $request->comentarios,
         ]);
 
         return redirect()->route('residente.incidencias.historial')
             ->with('success', 'Evaluación enviada correctamente.');
     }
-
 }

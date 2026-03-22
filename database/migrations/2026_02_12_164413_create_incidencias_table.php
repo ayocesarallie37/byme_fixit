@@ -24,7 +24,7 @@ return new class extends Migration
                 'reportada',
                 'asignada',
                 'en_progreso',
-                'completada'
+                'completada',
             ])->default('reportada');
 
             $table->foreignId('residentes_id')

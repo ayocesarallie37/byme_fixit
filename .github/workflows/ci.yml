@@ -7,7 +7,7 @@ on:
     branches: [ main, develop ]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
@@ -27,5 +27,16 @@ jobs:
     - name: Copy .env
       run: cp .env.example .env
 
-    - name: Generate key
+    - name: Generate app key
       run: php artisan key:generate
+
+    - name: Set up testing environment
+      run: |
+        echo "DB_CONNECTION=sqlite" >> .env
+        echo "DB_DATABASE=:memory:" >> .env
+
+    - name: Run migrations
+      run: php artisan migrate
+
+    - name: Run tests
+      run: php artisan test

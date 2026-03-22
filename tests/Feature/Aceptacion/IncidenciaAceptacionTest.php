@@ -2,10 +2,10 @@
 
 namespace Tests\Feature\Aceptacion;
 
-use Tests\TestCase;
-use App\Models\User;
 use App\Models\Residente;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class IncidenciaAceptacionTest extends TestCase
 {
@@ -21,7 +21,7 @@ class IncidenciaAceptacionTest extends TestCase
     public function test_flujo_completo_creacion_incidencia()
     {
         $user = User::factory()->create([
-            'role' => 'residente'
+            'role' => 'residente',
         ]);
 
         Residente::create([
@@ -31,26 +31,26 @@ class IncidenciaAceptacionTest extends TestCase
         $response = $this->actingAs($user)->post('/residente/incidencias', [
             'asunto' => 'Problema eléctrico',
             'descripcion' => 'No hay luz en la sala',
-            'prioridad' => 'alta'
+            'prioridad' => 'alta',
         ]);
 
         $response->assertStatus(302);
 
         $this->assertDatabaseHas('incidencias', [
-            'asunto' => 'Problema eléctrico'
+            'asunto' => 'Problema eléctrico',
         ]);
     }
 
     public function test_usuario_sin_rol_residente_no_puede_crear_incidencia()
     {
         $user = User::factory()->create([
-            'role' => 'tecnico'
+            'role' => 'tecnico',
         ]);
 
         $response = $this->actingAs($user)->post('/residente/incidencias', [
             'asunto' => 'Prueba',
             'descripcion' => 'Prueba desc',
-            'prioridad' => 'media'
+            'prioridad' => 'media',
         ]);
 
         $response->assertStatus(403);

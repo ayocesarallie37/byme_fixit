@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Residente\IncidenciaController;
 use App\Http\Controllers\Residente\DashboardController;
+use App\Http\Controllers\Residente\IncidenciaController;
 use App\Http\Controllers\Residente\NotificacionController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -36,10 +36,10 @@ Route::middleware(['auth', 'role:residente'])
 
         Route::post('/incidencias', [IncidenciaController::class, 'store'])
             ->name('incidencias.store');
-        
+
         Route::get('/incidencias/historial', [IncidenciaController::class, 'historial'])
             ->name('incidencias.historial');
-        
+
         Route::get('/evaluacion/{incidencia}', [IncidenciaController::class, 'evaluacion'])
             ->name('evaluacion.form');
 

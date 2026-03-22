@@ -3,10 +3,7 @@
 namespace App\Http\Controllers\Residente;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Residente;
 use App\Models\Notificacion;
-
 
 class NotificacionController extends Controller
 {
