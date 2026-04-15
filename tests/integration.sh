@@ -2,7 +2,7 @@
 
 echo "🔗 Ejecutando Integration Test..."
 
-docker exec byme_fixit_app bash -c "
+docker exec byme_fixit-app-1 bash -c "
 cp .env.example .env &&
 php artisan key:generate &&
 touch database/database.sqlite &&
