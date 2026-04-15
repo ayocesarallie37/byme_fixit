@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  app:
+    build: ..
+    container_name: byme_fixit_staging
+    ports:
+      - "8080:80"
+    env_file:
+      - ../.env
