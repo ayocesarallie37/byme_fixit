@@ -2,7 +2,15 @@
 
 echo "🔗 Ejecutando Integration Test..."
 
-docker exec byme_fixit_app php artisan test
+docker exec byme_fixit_app bash -c "
+cp .env.example .env &&
+php artisan key:generate &&
+touch database/database.sqlite &&
+echo 'DB_CONNECTION=sqlite' >> .env &&
+echo 'DB_DATABASE=/var/www/html/database/database.sqlite' >> .env &&
+php artisan migrate &&
+php artisan test
+"
 
 if [ $? -ne 0 ]; then
   echo "❌ Integration test falló"
