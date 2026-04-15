@@ -1,80 +1,135 @@
-# ByMe FixIt
+# 🚀 Byme Fixit
 
-![Laravel CI](https://github.com/ayocesarallie37/byme_fixit/actions/workflows/ci.yml/badge.svg)
+## 👥 Integrantes
 
-![License](https://img.shields.io/badge/license-MIT-green)
+* Nombre 1
+* Nombre 2
+* Nombre 3
 
-![Laravel](https://img.shields.io/badge/Laravel-10-red)
+---
 
-![PHP](https://img.shields.io/badge/PHP-8.2-blue)
+## 📌 Descripción
 
-## Descripción
-ByMe FixIt es una aplicación web diseñada para gestionar solicitudes de mantenimiento y soporte técnico dentro de una organización.
+Byme Fixit es una aplicación desarrollada en Laravel que permite gestionar servicios técnicos, implementando un flujo completo de integración y despliegue continuo (CI/CD) utilizando Docker y GitHub Actions.
 
-## Objetivo
-Automatizar el registro, seguimiento y resolución de incidencias técnicas.
+---
 
-## Stack tecnológico
-- Backend: Laravel
-- Frontend: Blade + Vite
-- Base de datos: MySQL / SQLite
-- Control de versiones: Git + GitHub
-- CI/CD: GitHub Actions
+## ⚙️ Requisitos previos
 
-## Tipo de aplicación
-Aplicación web.
+* Docker
+* Docker Compose
+* Git
+* Node.js (opcional)
+* PHP 8.2 (si se ejecuta sin Docker)
 
-## Roles del sistema
-- Administrador
-- Técnico
-- Residente
+---
 
-## Funcionalidades principales
-- Registro de usuarios
-- Gestión de incidencias
-- Asignación de técnicos
-- Seguimiento de solicitudes
-
-## Documentation
-
-Project documentation can be found in the `/docs` directory.
-
-- Architecture
-- API
-- Installation Guide
-
-## Estructura de pruebas
-
-El proyecto cuenta con diferentes tipos de pruebas organizadas de la siguiente manera:
-
-tests/
-├── Unit/
-├── Feature/
-│ ├── Aceptacion/
-│ ├── Esfuerzo/
-│ └── Integracion/
-
-### Tipos de pruebas:
-- **Unitarias:** Validan funciones individuales.
-- **Integración:** Validan interacción entre módulos.
-- **Esfuerzo:** Evalúan rendimiento del sistema.
-- **Aceptación:** Validan que el sistema cumple con los requisitos del usuario.
-
-## Ejecución de pruebas
-
-### 1. Ejecutar todas las pruebas
-```bash
-php artisan test
-
-## Instalación
+## 🛠️ Instalación
 
 ```bash
-git clone https://github.com/tuusuario/byme_fixit.git
+git clone https://github.com/ayocesarallie37/byme_fixit.git
 cd byme_fixit
-composer install
-npm install
-cp .env.example .env
-php artisan key:generate
-php artisan migrate
-npm run dev
-php artisan serve
+docker compose up -d --build
+```
+
+---
+
+## 🚀 Ejecución
+
+Abrir en navegador:
+
+```
+http://localhost:8080
+```
+
+---
+
+## 🧪 Pruebas
+
+### Smoke Test
+
+```bash
+bash tests/smoke.sh
+```
+
+### Integration Test
+
+```bash
+bash tests/integration.sh
+```
+
+### Health Check
+
+```bash
+bash tests/healthcheck.sh
+```
+
+---
+
+## 🔁 Pipeline CI/CD
+
+El pipeline incluye:
+
+* Build
+* Test
+* Publish (Docker)
+* Deploy
+
+Se ejecuta automáticamente con:
+
+* push a `main`
+* pull request
+
+---
+
+## 🚀 Despliegue
+
+### Deploy a staging
+
+```bash
+bash scripts/deploy/deploy_staging.sh
+```
+
+### Deploy a producción
+
+```bash
+bash scripts/deploy/deploy_production.sh
+```
+
+---
+
+## ⏪ Rollback
+
+```bash
+bash scripts/deploy/rollback.sh
+```
+
+---
+
+## 🔐 Variables de entorno
+
+Archivo `.env.example` incluye:
+
+* DB_CONNECTION
+* DB_HOST
+* DB_DATABASE
+* DB_USERNAME
+* DB_PASSWORD
+
+---
+
+## 📊 Evidencia
+
+Pipeline ejecutado correctamente en GitHub Actions:
+
+* Build ✔️
+* Tests ✔️
+* Deploy ✔️
+
+---
+
+## 📌 Notas
+
+El proyecto utiliza Docker para garantizar portabilidad y reproducibilidad del entorno.
+
+---
