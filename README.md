@@ -2,9 +2,13 @@
 
 ## 👥 Integrantes
 
-* Nombre 1
-* Nombre 2
-* Nombre 3
+* Pérez Hernández César Alejandro.
+* Alan David Péch Mex.
+* Reyes Sanchez Kevin Jair.
+* Zetina Arias Brian Daniel.
+* Pech Santis Miguel Ángel.
+* Hernández Buenrostro Luis Felipe.
+* De la Cruz Celis Jose Adiel.
 
 ---
 
