@@ -7,4 +7,4 @@ echo "Deployando a $ENV..."
 docker compose down
 docker compose up -d
 
-echo "Deploy completado ✔️"
+echo "Deploy completado"

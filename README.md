@@ -1,6 +1,6 @@
-# 🚀 Byme Fixit
+# Byme Fixit
 
-## 👥 Integrantes
+## Integrantes
 
 * Pérez Hernández César Alejandro.
 * Alan David Péch Mex.
@@ -12,13 +12,13 @@
 
 ---
 
-## 📌 Descripción
+## Descripción
 
 Byme Fixit es una aplicación desarrollada en Laravel que permite gestionar servicios técnicos, implementando un flujo completo de integración y despliegue continuo (CI/CD) utilizando Docker y GitHub Actions.
 
 ---
 
-## ⚙️ Requisitos previos
+## Requisitos previos
 
 * Docker
 * Docker Compose
@@ -28,7 +28,7 @@ Byme Fixit es una aplicación desarrollada en Laravel que permite gestionar serv
 
 ---
 
-## 🛠️ Instalación
+## Instalación
 
 ```bash
 git clone https://github.com/ayocesarallie37/byme_fixit.git
@@ -38,7 +38,7 @@ docker compose up -d --build
 
 ---
 
-## 🚀 Ejecución
+## Ejecución
 
 Abrir en navegador:
 
@@ -48,7 +48,7 @@ http://localhost:8080
 
 ---
 
-## 🧪 Pruebas
+## Pruebas
 
 ### Smoke Test
 
@@ -70,7 +70,7 @@ bash tests/healthcheck.sh
 
 ---
 
-## 🔁 Pipeline CI/CD
+## Pipeline CI/CD
 
 El pipeline incluye:
 
@@ -86,7 +86,7 @@ Se ejecuta automáticamente con:
 
 ---
 
-## 🚀 Despliegue
+## Despliegue
 
 ### Deploy a staging
 
@@ -102,7 +102,7 @@ bash scripts/deploy/deploy_production.sh
 
 ---
 
-## ⏪ Rollback
+## Rollback
 
 ```bash
 bash scripts/deploy/rollback.sh
@@ -110,7 +110,7 @@ bash scripts/deploy/rollback.sh
 
 ---
 
-## 🔐 Variables de entorno
+## Variables de entorno
 
 Archivo `.env.example` incluye:
 
@@ -122,7 +122,7 @@ Archivo `.env.example` incluye:
 
 ---
 
-## 📊 Evidencia
+## Evidencia
 
 Pipeline ejecutado correctamente en GitHub Actions:
 
@@ -132,7 +132,7 @@ Pipeline ejecutado correctamente en GitHub Actions:
 
 ---
 
-## 📌 Notas
+## Notas
 
 El proyecto utiliza Docker para garantizar portabilidad y reproducibilidad del entorno.
 

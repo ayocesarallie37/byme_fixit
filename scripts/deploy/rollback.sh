@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "⏪ Ejecutando ROLLBACK..."
+echo "Ejecutando ROLLBACK..."
 
 # Volver al commit anterior
 git reset --hard HEAD~1
@@ -9,4 +9,4 @@ git reset --hard HEAD~1
 docker compose down
 docker compose up -d --build
 
-echo "✅ Rollback completado"
+echo "Rollback completado"
